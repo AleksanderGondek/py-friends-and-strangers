@@ -9,17 +9,16 @@ pkgs.mkShell {
   buildInputs = with pkgs; [
     bash
     busybox
-    python38Full
+    (
+      (
+        python38Full.withPackages(ps : with ps; [ 
+          poetry 
+        ])
+      ).override(args: { ignoreCollisions = true; })
+    )
   ];
 
   shellHook = ''
     unset SOURCE_DATE_EPOCH
-    export PYTHONPATH="$(pwd)/:$PYTHONPATH"
-
-    if [ ! -d "${virtualEnvName}}" ]; then
-      python3 -m venv .venv
-    fi
-
-    source ${virtualEnvName}/bin/activate
   '';
 }

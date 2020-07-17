@@ -9,6 +9,7 @@ pkgs.stdenv.mkDerivation({
       inherit (texlive)
         scheme-small
         amsmath
+        zref
         amsfonts
         stmaryrd
         algorithm2e

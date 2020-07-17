@@ -29,12 +29,13 @@ pkgs.stdenv.mkDerivation({
     # See: https://tex.stackexchange.com/questions/496275/texlive-2019-lualatex-doesnt-compile-document
     # Without export, lualatex fails silently, with exit code '0'
     export TEXMFVAR=$(pwd)
-    lualatex -interaction=nonstopmode assignment.tex
+    export CURRENT_DATE=$(date +'%A, %d %B %Y')
+    lualatex -interaction=nonstopmode assignment-1.tex
   '';
 
   installPhase = ''
     mkdir -p $out
-    cp assignment.log $out
-    cp assignment.pdf $out
+    cp assignment-1.log $out
+    cp assignment-1.pdf $out
   '';
 })

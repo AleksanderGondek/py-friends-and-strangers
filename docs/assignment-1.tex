@@ -4,15 +4,17 @@
 
 \documentclass{article}
 
+\edef \writtenAt{\directlua{tex.sprint(os.getenv('CURRENT_DATE'))}}
+
 \input{style/assignment2.cls} % Include LateX Template Assignment2
 
 %----------------------------------------------------------------------------------------
 %	ASSIGNMENT INFORMATION
 %----------------------------------------------------------------------------------------
 
-\title{Web Apps in Python: 101}
-\author{M. Sc. Eng. Aleksander Gondek\\ \texttt{Software Engineer}}
-\date{Gdansk, Poland --- 1 February 2020}
+\title{py-friends-and-strangers}
+\author{Assignment 1\\ \texttt{by Aleksander Gondek}}
+\date{Gdansk, Poland --- \writtenAt}
 
 %----------------------------------------------------------------------------------------
 
